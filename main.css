@@ -13,13 +13,17 @@ body {
   max-width: 800px;
   font-size: 3em;
   margin: 1em auto;
+  text-align: center;
 }
 
 #inputoutput {
   display: block;
 }
 
-img, canvas {
+img {
+  display: none;
+}  
+canvas {
   width: 100%;
 }
 
@@ -32,13 +36,16 @@ img, canvas {
   padding: 0.5em;
   text-align: center;
   font-size: 1em;
-  border: 1px solid rgb(235, 48, 124);
   background-color: white;
-  color: rgb(235, 48, 124);
+  border: 1px solid black;
+  color: black;
+  /* border: 1px solid rgb(235, 48, 124); */
+  /* color: rgb(235, 48, 124); */
 
 }
 .button:hover {
-  background-color: rgb(235, 48, 124);
+  /* background-color: rgb(235, 48, 124); */
+  background-color: black;
   color: white;
   cursor: pointer;
 }
