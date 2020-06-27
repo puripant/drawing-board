@@ -20,12 +20,6 @@ inputElement.addEventListener('change', (e) => {
   imgElement.src = URL.createObjectURL(e.target.files[0]);
 }, false);
 
-// const range = document.getElementById('threshold');
-// range.addEventListener('input', () => {
-//   console.log('input')
-//   update(+range.value);
-// });
-
 function update(threshold) {
   dst = input.clone()
   dst2 = cv.Mat.ones(src.rows, src.cols, cv.CV_8UC3);
