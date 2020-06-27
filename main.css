@@ -11,13 +11,10 @@ body {
 #header {
   width: 100%;
   max-width: 800px;
-  font-size: 3em;
+  font-size: 4em;
   margin: 1em auto;
   text-align: center;
-}
-
-#inputoutput {
-  display: block;
+  color: rgb(235, 48, 124);
 }
 
 img {
@@ -25,10 +22,15 @@ img {
 }  
 canvas {
   width: 100%;
+  max-width: 800px;
+}
+canvas.intermediate {
+  width: 33%;
+  max-width: 266px;
 }
 
 .buttons {
-  margin: 1em 0;
+  margin: 1em auto;
   text-align: center;
 }
 .button {
@@ -37,15 +39,14 @@ canvas {
   text-align: center;
   font-size: 1em;
   background-color: white;
-  border: 1px solid black;
-  color: black;
-  /* border: 1px solid rgb(235, 48, 124); */
-  /* color: rgb(235, 48, 124); */
-
+  /* border: 1px solid black;
+  color: black; */
+  border: 1px solid rgb(235, 48, 124);
+  color: rgb(235, 48, 124);
 }
 .button:hover {
-  /* background-color: rgb(235, 48, 124); */
-  background-color: black;
+  background-color: rgb(235, 48, 124);
+  /* background-color: black; */
   color: white;
   cursor: pointer;
 }

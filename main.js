@@ -1,15 +1,16 @@
 let threshold = 60;
-let input, src, dst;
+let input, src, dst, dst2;
 
-let imgElement = document.getElementById('input')
+let imgElement = document.getElementById('image')
 imgElement.onload = () => {
-  input = cv.imread('input');
+  input = cv.imread('image');
+  cv.imshow('input', input);
+
   src = input.clone();
-  // cv.imshow('output', src);
   cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
   cv.medianBlur(src, src, 5);
   cv.Canny(src, src, 50, 200, 3);
-  // cv.imshow('intermediate', src);
+  cv.imshow('canny', src);
 
   update(threshold);
 }
@@ -26,13 +27,16 @@ inputElement.addEventListener('change', (e) => {
 // });
 
 function update(threshold) {
-  dst = input.clone() //cv.Mat.ones(src.rows, src.cols, cv.CV_8UC3);
+  dst = input.clone()
+  dst2 = cv.Mat.ones(src.rows, src.cols, cv.CV_8UC3);
 
   findLines(threshold);
   findCircles(threshold/2);
 
   cv.imshow('output', dst);
+  cv.imshow('lines', dst2);
   dst.delete();
+  dst2.delete();
 }
 function findLines(threshold) {
   let lines = new cv.Mat();
@@ -47,6 +51,7 @@ function findLines(threshold) {
     let startPoint = {x: x0 - 1000 * b, y: y0 + 1000 * a};
     let endPoint = {x: x0 + 1000 * b, y: y0 - 1000 * a};
     cv.line(dst, startPoint, endPoint, [100, 100, 100, 100]);
+    cv.line(dst2, startPoint, endPoint, [255, 255, 255, 255]);
   }
   lines.delete();
 }
@@ -59,6 +64,7 @@ function findCircles(threshold) {
     let radius = Math.round(circles.data32F[i * 3 + 2]);
     let center = new cv.Point(x, y);
     cv.circle(dst, center, radius, [100, 100, 100, 100]);
+    cv.circle(dst2, center, radius, [255, 255, 255, 255]);
   }
   circles.delete();
 }
