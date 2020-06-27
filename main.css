@@ -31,7 +31,8 @@ canvas.intermediate {
 
 .buttons {
   margin: 1em auto;
-  text-align: center;
+  width: 320px;
+  /* text-align: center; */
 }
 .button {
   display: inline-block;
