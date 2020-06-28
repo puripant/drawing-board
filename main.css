@@ -4,13 +4,14 @@ body {
   margin: 1em auto;
   background-color: white;
   display: block;
-  font-family: 'Chonburi', sans-serif;
+  font-family: sans-serif;
   font-size: 10px;
 }
 
 #header {
   width: 100%;
   max-width: 800px;
+  font-family: 'Chonburi', sans-serif;
   font-size: 4em;
   margin: 1em auto;
   text-align: center;
@@ -29,9 +30,13 @@ canvas.intermediate {
   max-width: 266px;
 }
 
+input#file {
+  width: 200px;
+} 
+
 .buttons {
   margin: 1em auto;
-  width: 320px;
+  width: 280px;
   /* text-align: center; */
 }
 .button {
@@ -40,14 +45,11 @@ canvas.intermediate {
   text-align: center;
   font-size: 1em;
   background-color: white;
-  /* border: 1px solid black;
-  color: black; */
   border: 1px solid rgb(235, 48, 124);
   color: rgb(235, 48, 124);
 }
 .button:hover {
   background-color: rgb(235, 48, 124);
-  /* background-color: black; */
   color: white;
   cursor: pointer;
 }
@@ -61,10 +63,6 @@ canvas.intermediate {
                                   supported by Chrome and Opera */
 }
 
-#credit {
-	width: 320px;
-	margin: 0 auto;
-}
 .center {
 	text-align: center;
 }
