@@ -1,10 +1,18 @@
+const maxLines = 1000;
+const maxCircles = 1000;
+
 let threshold = 60;
 let input, src, dst, dst2;
+let width, height;
 
 let imgElement = document.getElementById('image')
 imgElement.onload = () => {
   input = cv.imread('image');
   cv.imshow('input', input);
+
+  width = Math.min(input.cols, 800);
+  height = Math.min(input.rows, width * input.rows / input.cols);
+  cv.resize(input, input, new cv.Size(width, height), 0, 0, cv.INTER_AREA);
 
   src = input.clone();
   cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
@@ -35,7 +43,7 @@ function update(threshold) {
 function findLines(threshold) {
   let lines = new cv.Mat();
   cv.HoughLines(src, lines, 1, Math.PI / 180, threshold, 0, 0, 0, Math.PI);
-  for (let i = 0; i < lines.rows; ++i) {
+  for (let i = 0; i < Math.min(maxLines, lines.rows); ++i) {
     let rho = Math.round(lines.data32F[i * 2] / 10) * 10;
     let theta = Math.round(lines.data32F[i * 2 + 1] * 10) / 10;
     let a = Math.cos(theta);
@@ -52,7 +60,7 @@ function findLines(threshold) {
 function findCircles(threshold) {
   let circles = new cv.Mat();
   cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT, 1, 1, threshold, threshold, 1, 100000);
-  for (let i = 0; i < circles.cols; ++i) {
+  for (let i = 0; i < Math.min(maxCircles, circles.cols); ++i) {
     let x = Math.round(circles.data32F[i * 3] / 10) * 10;
     let y = Math.round(circles.data32F[i * 3 + 1] / 10) * 10;
     let radius = Math.round(circles.data32F[i * 3 + 2]);

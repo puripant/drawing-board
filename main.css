@@ -13,7 +13,7 @@ body {
   max-width: 800px;
   font-family: 'Chonburi', sans-serif;
   font-size: 4em;
-  margin: 1em auto;
+  margin: 1em auto 0.5em auto;
   text-align: center;
   color: rgb(235, 48, 124);
 }
