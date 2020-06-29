@@ -71,3 +71,7 @@ function findCircles(threshold) {
   }
   circles.delete();
 }
+
+function onOpenCvReady() {
+  inputElement.disabled = false;
+}

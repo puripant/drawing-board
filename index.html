@@ -33,7 +33,7 @@
   
   <div class="buttons">
     เลือกไฟล์ภาพ: 
-    <input type="file" id="file" name="file" />
+    <input type="file" id="file" name="file" disabled />
   </div>
   <div class="buttons">
     เลือกระดับเส้นร่าง: 
@@ -58,7 +58,7 @@
     <div class="logo boonmeelab"><a href="https://www.boonmeelab.com"><span></span></a></div>
   </div>
 
-  <script src="opencv.js" type="text/javascript"></script>
+  <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
   <script src="main.js"></script>
 </body>
 </html>
